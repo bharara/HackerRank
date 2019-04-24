@@ -3,24 +3,24 @@ def palin(num):
     return str(num) == str(num)[::-1]
 
 
+# Create a list of are Palindromes in Range
+p = []
+for a in range(100, 1000):
+    for b in range(a, 1000):
+        if palin(a*b):
+           p.append (a*b)
+p = sorted (p)
+
+
 t = int(input().strip())
 for a0 in range(t):
     n = int(input().strip())
-        
-    a = 100
-    large = 0
-    while a < 1000:
-        b = a
-        while b < 1000:
-            if a*b > n:
-                break
-            if large < a*b and palin (a*b):
-                large = a*b
-                break
-            b += 1
-
-        if a*b > large and palin (a*b):
+            
+    val = 0
+    for i in p:
+        if i < n:
+            val = i
+        else:
             break
-        a += 1
-        
-    print (large)
+
+    print(val)
